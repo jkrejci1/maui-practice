@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contacts.Maui.Views.ContactsPage"
+             Title="Contacts">
+    
+    <!-- Occupies the whole screen (Use transparent to make clear background consistent on all devices) -->
+    <!-- With a phone you tap items in list like with item selected event etc -->
+    <ListView 
+        x:Name="listContacts" 
+        Background="Transparent"
+        SeparatorColor="Silver"
+        RowHeight="65"
+        ItemSelected="listContacts_ItemSelected"
+        ItemTapped="listContacts_ItemTapped"
+        >
+        
+        <!-- Use this for handeling displaying object data DATA BINDING-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <!-- Referring to object bound to the item with the path == to the property of that object by default, in this case, Name -->
+                <TextCell 
+                    Text="{Binding Name}"
+                    Detail="{Binding Email}"
+                    >
+                </TextCell> 
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        
+    </ListView>
+</ContentPage>
